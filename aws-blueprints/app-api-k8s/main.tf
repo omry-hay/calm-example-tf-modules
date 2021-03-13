@@ -13,3 +13,7 @@ output "app-api-k8s" {
 output "stage" {
   value = var.stage
 }
+
+output "stage2" {
+  value = var.stage
+}
