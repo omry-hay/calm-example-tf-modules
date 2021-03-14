@@ -15,10 +15,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.sha }}
-      - name: Get Latest tag
-        id: latesttag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
       - name: What is my tag
-        run: git checkout ${{ steps.previoustag.outputs.tag }} 
+        run: git checkout `git describe --abbrev=0 --tags`
       - name: What is my tag
         run: git branch --show-current 
