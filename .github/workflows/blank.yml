@@ -18,5 +18,7 @@ jobs:
       - name: 'Get Previous tag'
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
-      - name: What is my tag
+      - name: What is my branch
         run: git checkout ${{ steps.previoustag.outputs.tag }}
+      - name: What is my branch
+        run: git branch --show-current
