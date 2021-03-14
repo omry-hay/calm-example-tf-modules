@@ -14,8 +14,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
       - name: What is my tag
-        run: git checkout `git describe --abbrev=0 --tags`
-      - name: What is my tag
-        run: git branch --show-current 
+        run: git checkout ${{ steps.previoustag.outputs.tag }}
