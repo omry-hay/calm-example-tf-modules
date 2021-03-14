@@ -1,8 +1,6 @@
 name: Check tags
 
-on:
-  schedule:
-    - cron:  '1 * * * *'
+on: [push]
     
 jobs:
   e2e:
