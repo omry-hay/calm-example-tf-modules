@@ -2,6 +2,9 @@
 resource "null_resource" "app-api-k8s" {
 }
 
+resource "null_resource" "app-api-k8s-2" {
+}
+
 variable "stage" {
   type = string
 }
