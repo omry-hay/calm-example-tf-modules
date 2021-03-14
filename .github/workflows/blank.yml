@@ -21,4 +21,4 @@ jobs:
       - name: What is my branch
         run: git checkout ${{ steps.previoustag.outputs.tag }}
       - name: What is my branch
-        run: git branch --show-current
+        run: echo `git branch --show-current`
