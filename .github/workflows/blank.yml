@@ -1,7 +1,5 @@
 name: Check tags
-
 on: [push]
-    
 jobs:
   e2e:
     runs-on: ubuntu-20.04
@@ -13,12 +11,14 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: Get Latest tag
-        id: latesttag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: ${{ steps.previoustag.outputs.tag }}
+          ref: ${{ github.sha }}
+      - name: Get Latest tag
+        id: latesttag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      - name: What is my tag
+        run: git checkout ${{ steps.previoustag.outputs.tag }} 
       - name: What is my tag
         run: git branch --show-current 
