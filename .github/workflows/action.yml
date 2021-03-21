@@ -17,6 +17,6 @@ jobs:
           fetch-depth: 0
       - name: What is my branch
         env: 
-          SLACK_WEBHOOK: "${{ github.event.run_number < 0 && 'omry' || 'shuki' }}"
+          SLACK_WEBHOOK: "${{ github.run_number > 10 && 'omry' || 'shuki' }}"
         run: echo $SLACK_WEBHOOK
         
